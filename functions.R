@@ -6,6 +6,9 @@
 #' @param sequence_file Path to the FASTA file containing the sequences.
 #' @param alignment_method The alignment method to use (e.g., "ClustalOmega").
 #' @return A matrix representing the aligned sequences.
+#' @import msa
+#' @importFrom Biostrings readAAStringSet
+#' @importFrom Biostrings as.matrix
 #' @export
 analyze_fasta_alignment <- function(sequence_file, alignment_method) {
   mySequences <- readAAStringSet(sequence_file)
@@ -20,6 +23,7 @@ analyze_fasta_alignment <- function(sequence_file, alignment_method) {
 #'
 #' @param column A vector representing a column from a matrix.
 #' @return The count of unique characters excluding dashes.
+#' @importFrom plyr ldply
 #' @export
 count_unique_characters <- function(column) {
   unique_chars <- unique(column)
@@ -33,6 +37,7 @@ count_unique_characters <- function(column) {
 #'
 #' @param matrix_data A matrix of aligned sequences.
 #' @return A list of rows with similar values.
+#' @importFrom plyr ldply
 #' @export
 find_similar_rows <- function(matrix_data) {
   row_concatenated <- apply(matrix_data, 1, paste, collapse = "")
@@ -52,6 +57,9 @@ find_similar_rows <- function(matrix_data) {
 #' @param dat_aligned A matrix of aligned sequences.
 #' @param fragment_size The size of each fragment to analyze.
 #' @return A list containing percentage of alphabetic characters and a final table with fragment analysis.
+#' @import dplyr
+#' @importFrom plyr ldply
+#' @importFrom purrr imap_dfr
 #' @export
 analyze_fragments <- function(dat_aligned, fragment_size) {
   fragment_list <- list()
