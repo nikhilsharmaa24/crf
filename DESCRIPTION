@@ -1,0 +1,10 @@
+Package: crf
+Type: Package
+Title: Conserved Region Finder
+Version: 0.1.0
+Author: Nikhil Sharma
+Maintainer: Your Name <your.email@example.com>
+Description: Provides functions for sequence aligning and conversed region finding.
+License: GPL-3
+Imports: msa, tidyverse, Biostrings, plyr
+RoxygenNote: 7.3.1
