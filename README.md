@@ -1,3 +1,5 @@
+## This work is about finding conserved region in sequence data. Clustal omega software is used to do multiple sequence alignment using msa package from bioconductor.
+
 ### Installing the packge use devtools
 devtools::install_github('nikhilsharmaa24/crf')
 
