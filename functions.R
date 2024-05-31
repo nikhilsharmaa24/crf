@@ -5,7 +5,7 @@
 #'
 #' @param sequence_file Path to the FASTA file containing the sequences.
 #' @param alignment_method The alignment method to use (e.g., "ClustalOmega").
-#' @return A matrix representing the aligned sequences.
+#' @return A matrix representing the aligned sequences with rownames small.
 #' @import msa
 #' @importFrom Biostrings readAAStringSet
 #' @importFrom Biostrings as.matrix
