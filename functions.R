@@ -14,6 +14,8 @@ analyze_fasta_alignment <- function(sequence_file, alignment_method) {
   mySequences <- readAAStringSet(sequence_file)
   myAlignment <- msa(mySequences, alignment_method)
   dat_aligned <- Biostrings::as.matrix(myAlignment)
+  row_names <- rownames(dat_aligned)
+  rownames(dat_aligned) <- sub("^(\\S+).*", "\\1", row_names)
   return(dat_aligned)
 }
 
